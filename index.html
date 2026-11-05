@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AnimeVerse : actualités, découvertes et analyses autour des animés, mangas et jeux vidéo.">
+  <meta name="theme-color" content="#090b18">
+  <title>AnimeVerse — Animé, Manga & Gaming</title>
+  <style>
+    :root{--bg:#080a16;--panel:#11152a;--panel2:#171c35;--text:#f4f5ff;--muted:#a8aecb;--purple:#a855f7;--blue:#38bdf8;--line:#292f50;--max:1160px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(ellipse at 80% 0%,#24134a 0,transparent 35%),var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none} button,input{font:inherit} .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+    .topline{height:3px;background:linear-gradient(90deg,var(--purple),var(--blue))}
+    header{position:sticky;top:0;z-index:10;background:#090b18eF;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.4px;font-size:1.25rem}.brand-mark{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,#8b5cf6,#2563eb);display:grid;place-items:center;box-shadow:0 0 28px #8b5cf655;font-size:22px}
+    .brand span:last-child{color:#b98aff}.links{display:flex;gap:24px;color:var(--muted);font-size:.94rem}.links a:hover,.links a.active{color:white}
+    .nav-actions{display:flex;align-items:center;gap:10px}.search{width:190px;background:#ffffff0b;border:1px solid var(--line);border-radius:999px;padding:9px 14px;color:white;outline:none}.search:focus{border-color:var(--purple)}
+    .menu-btn{display:none;background:transparent;color:white;border:1px solid var(--line);border-radius:10px;padding:8px 11px}
+    .hero{padding:72px 0 48px;display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:#d8c2ff;background:#8b5cf622;border:1px solid #8b5cf655;padding:7px 12px;border-radius:999px;font-size:.78rem;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+    h1{font-size:clamp(2.7rem,6vw,5.1rem);line-height:1.02;letter-spacing:-3px;margin:20px 0}.gradient{background:linear-gradient(90deg,#c084fc,#60a5fa);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:var(--muted);font-size:1.1rem;max-width:560px}.buttons{display:flex;gap:13px;flex-wrap:wrap;margin-top:27px}
+    .btn{border:0;border-radius:12px;padding:12px 19px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+    .primary{background:linear-gradient(100deg,#9333ea,#2563eb);color:white;box-shadow:0 8px 28px #6d28d944}.primary:hover{transform:translateY(-2px);filter:brightness(1.12)}
+    .secondary{background:#ffffff0a;color:white;border:1px solid var(--line)}.secondary:hover{background:#ffffff14}
+    .hero-art{min-height:390px;position:relative;border:1px solid #ffffff20;border-radius:28px;overflow:hidden;background:radial-gradient(circle at 72% 25%,#a855f766,transparent 28%),radial-gradient(circle at 25% 75%,#0284c766,transparent 35%),linear-gradient(145deg,#17132f,#0d1830 60%,#111027);box-shadow:0 25px 80px #0008}
+    .orbit{position:absolute;width:270px;height:270px;border:1px solid #c4b5fd55;border-radius:50%;top:55px;left:50%;transform:translateX(-50%);box-shadow:0 0 50px #8b5cf722,inset 0 0 40px #8b5cf711}
+    .orb{position:absolute;border-radius:50%;filter:blur(1px)}.orb.one{width:13px;height:13px;background:#67e8f9;top:73px;left:18%}.orb.two{width:9px;height:9px;background:#d8b4fe;right:17%;top:43%}
+    .hero-symbol{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(7rem,18vw,12rem);text-shadow:0 0 45px #a855f7aa;transform:rotate(-9deg)}
+    .art-label{position:absolute;bottom:22px;left:22px;right:22px;display:flex;justify-content:space-between;align-items:end}.art-label strong{font-size:1.3rem}.art-label small{color:#c4b5fd}
+    .stats{display:flex;gap:26px;margin-top:28px;color:var(--muted);font-size:.88rem}.stats b{display:block;color:white;font-size:1.25rem}
+    .section{padding:35px 0 60px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}.section-head h2{font-size:1.8rem;margin:0;letter-spacing:-.7px}.section-head p{margin:5px 0 0;color:var(--muted)}
+    .filters{display:flex;gap:9px;flex-wrap:wrap;margin:22px 0}.chip{background:#ffffff08;border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:999px;cursor:pointer}.chip.active,.chip:hover{color:white;border-color:#9b5cf6;background:#8b5cf626}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:linear-gradient(180deg,#151a32,#101426);border:1px solid #ffffff12;border-radius:18px;overflow:hidden;transition:.22s;cursor:pointer}.card:hover{transform:translateY(-5px);border-color:#8b5cf688;box-shadow:0 15px 35px #0005}
+    .thumb{height:185px;display:grid;place-items:center;font-size:4.5rem;position:relative;overflow:hidden}.thumb:before,.thumb:after{content:"";position:absolute;border-radius:50%;filter:blur(1px)}.thumb:before{width:210px;height:210px;border:1px solid #ffffff40;right:-35px;top:-90px}.thumb:after{width:130px;height:130px;border:1px solid #ffffff30;left:-25px;bottom:-75px}
+    .t-anime{background:radial-gradient(circle at 70% 25%,#f0abfc88,transparent 35%),linear-gradient(135deg,#4c1d95,#172554)}.t-manga{background:radial-gradient(circle at 70% 25%,#fb718588,transparent 35%),linear-gradient(135deg,#7f1d1d,#27143e)}.t-game{background:radial-gradient(circle at 70% 25%,#67e8f988,transparent 35%),linear-gradient(135deg,#164e63,#1e1b4b)}
+    .thumb span{position:relative;z-index:1;filter:drop-shadow(0 8px 16px #0008)}.card-body{padding:18px}.meta{display:flex;gap:10px;align-items:center;color:var(--muted);font-size:.78rem}.tag{color:#d8b4fe;background:#8b5cf622;padding:4px 9px;border-radius:999px;font-weight:800}.card h3{font-size:1.12rem;line-height:1.35;margin:13px 0 8px}.card p{color:var(--muted);font-size:.91rem;margin:0 0 16px}.read{color:#c4b5fd;font-weight:800;font-size:.88rem}
+    .empty{display:none;color:var(--muted);padding:30px;text-align:center;border:1px dashed var(--line);border-radius:16px}
+    .feature{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;background:linear-gradient(110deg,#211440,#10213b);border:1px solid #ffffff18;border-radius:22px;padding:28px;margin-top:15px}.feature-art{min-height:210px;border-radius:16px;display:grid;place-items:center;font-size:6rem;background:radial-gradient(circle,#a855f755,transparent 55%),linear-gradient(135deg,#30145b,#102b46)}.feature h2{font-size:1.8rem;line-height:1.15;margin:12px 0}.feature p{color:#c0c5dc}
+    .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.about-item{padding:20px;border:1px solid var(--line);background:#ffffff06;border-radius:16px}.about-item .ico{font-size:1.7rem}.about-item h3{margin:8px 0 4px}.about-item p{color:var(--muted);margin:0;font-size:.9rem}
+    footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.9rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot strong{color:white}
+    .modal{position:fixed;inset:0;background:#03040bdc;display:none;place-items:center;padding:20px;z-index:30}.modal.open{display:grid}.modal-box{width:min(680px,100%);max-height:85vh;overflow:auto;background:#12172d;border:1px solid #ffffff25;border-radius:20px;padding:26px;box-shadow:0 25px 90px #000b}.modal-top{display:flex;justify-content:space-between;gap:20px}.close{background:#ffffff12;color:white;border:1px solid var(--line);border-radius:9px;padding:5px 11px;cursor:pointer}.modal-box p{color:#c2c7df}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:48px}.hero-art{min-height:300px}.grid{grid-template-columns:repeat(2,1fr)}.links{gap:13px}.search{width:150px}}
+    @media(max-width:620px){.wrap{width:min(100% - 28px,var(--max))}.nav{height:66px}.links{display:none;position:absolute;top:66px;left:0;right:0;padding:18px 22px;background:#0c1022;border-bottom:1px solid var(--line);flex-direction:column}.links.show{display:flex}.menu-btn{display:block}.search{width:135px}.hero{gap:25px;padding:40px 0}.stats{gap:17px}.grid{grid-template-columns:1fr}.thumb{height:200px}.feature{grid-template-columns:1fr;padding:18px}.about-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}h1{letter-spacing:-2px}.hero-art{min-height:270px}}
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#accueil" aria-label="AnimeVerse accueil"><span class="brand-mark">✦</span><span>ANIME<span>VERSE</span></span></a>
+      <nav class="links" id="navLinks">
+        <a class="active" href="#accueil">Accueil</a><a href="#articles" data-filter-link="Animés">Animés</a><a href="#articles" data-filter-link="Mangas">Mangas</a><a href="#articles" data-filter-link="Jeux vidéo">Jeux vidéo</a><a href="#apropos">À propos</a>
+      </nav>
+      <div class="nav-actions"><input class="search" id="search" type="search" placeholder="Rechercher…" aria-label="Rechercher un article"><button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu">☰</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="accueil">
+      <div>
+        <span class="eyebrow">✦ Le rendez-vous des passionnés</span>
+        <h1>L'univers de tes passions <span class="gradient">commence ici.</span></h1>
+        <p>Actualités, découvertes et recommandations autour des animés, des mangas et des jeux vidéo. Entre dans l'univers AnimeVerse !</p>
+        <div class="buttons"><a class="btn primary" href="#articles">Explorer les articles <span>→</span></a><a class="btn secondary" href="#apropos">Découvrir AnimeVerse</a></div>
+        <div class="stats"><div><b>03</b>Univers</div><div><b>∞</b>Découvertes</div><div><b>1</b>Communauté</div></div>
+      </div>
+      <div class="hero-art" aria-label="Illustration abstraite néon AnimeVerse"><div class="orbit"></div><i class="orb one"></i><i class="orb two"></i><div class="hero-symbol">✦</div><div class="art-label"><div><small>ANIME • MANGA • GAMING</small><br><strong>Explore. Découvre. Joue.</strong></div><span>AV / 001</span></div></div>
+    </section>
+
+    <section class="wrap section" id="articles">
+      <div class="section-head"><div><span class="eyebrow">À la une</span><h2>Les dernières découvertes</h2><p>Des articles de démonstration à remplacer par tes propres publications.</p></div></div>
+      <div class="filters" role="group" aria-label="Filtrer les articles">
+        <button class="chip active" data-filter="Tous">Tout voir</button><button class="chip" data-filter="Animés">Animés</button><button class="chip" data-filter="Mangas">Mangas</button><button class="chip" data-filter="Jeux vidéo">Jeux vidéo</button>
+      </div>
+      <div class="grid" id="articleGrid">
+        <article class="card" data-category="Animés" data-title="Bien commencer une nouvelle saison d'animés">
+          <div class="thumb t-anime"><span>🎌</span></div><div class="card-body"><div class="meta"><span class="tag">ANIMÉS</span><span>Guide découverte</span></div><h3>Bien commencer une nouvelle saison d'animés</h3><p>Quelques conseils pour repérer les séries qui correspondent à tes goûts et organiser ta liste de visionnage.</p><span class="read">Lire l'article →</span></div>
+        </article>
+        <article class="card" data-category="Mangas" data-title="Comment choisir son prochain manga">
+          <div class="thumb t-manga"><span>📚</span></div><div class="card-body"><div class="meta"><span class="tag">MANGAS</span><span>Conseils</span></div><h3>Comment choisir son prochain manga</h3><p>Action, aventure, sport ou fantastique : découvre quelques critères pour trouver une histoire qui te plaît.</p><span class="read">Lire l'article →</span></div>
+        </article>
+        <article class="card" data-category="Jeux vidéo" data-title="Les jeux indépendants à surveiller">
+          <div class="thumb t-game"><span>🎮</span></div><div class="card-body"><div class="meta"><span class="tag">JEUX VIDÉO</span><span>Gaming</span></div><h3>Les jeux indépendants à surveiller</h3><p>Les studios indépendants proposent souvent des idées originales. Voici comment suivre leurs prochaines sorties.</p><span class="read">Lire l'article →</span></div>
+        </article>
+        <article class="card" data-category="Animés" data-title="Créer sa liste d'animés sans se perdre">
+          <div class="thumb t-anime"><span>🌌</span></div><div class="card-body"><div class="meta"><span class="tag">ANIMÉS</span><span>Organisation</span></div><h3>Créer sa liste d'animés sans se perdre</h3><p>Une méthode simple pour garder une trace des séries commencées, terminées et à découvrir.</p><span class="read">Lire l'article →</span></div>
+        </article>
+        <article class="card" data-category="Mangas" data-title="Lire un manga : papier ou numérique">
+          <div class="thumb t-manga"><span>📖</span></div><div class="card-body"><div class="meta"><span class="tag">MANGAS</span><span>Culture</span></div><h3>Lire un manga : papier ou numérique ?</h3><p>Deux façons de profiter de ses séries préférées, avec des avantages différents selon les habitudes.</p><span class="read">Lire l'article →</span></div>
+        </article>
+        <article class="card" data-category="Jeux vidéo" data-title="Trouver son prochain jeu à plusieurs">
+          <div class="thumb t-game"><span>🕹️</span></div><div class="card-body"><div class="meta"><span class="tag">JEUX VIDÉO</span><span>Communauté</span></div><h3>Trouver son prochain jeu à plusieurs</h3><p>Coopération, compétition ou aventure : quelques questions pour choisir un jeu avec ses amis.</p><span class="read">Lire l'article →</span></div>
+        </article>
+      </div>
+      <div class="empty" id="empty">Aucun article ne correspond à ta recherche.</div>
+    </section>
+
+    <section class="wrap section">
+      <div class="feature"><div class="feature-art">🚀</div><div><span class="eyebrow">La mission AnimeVerse</span><h2>Une passion, trois univers, mille découvertes.</h2><p>AnimeVerse est un espace indépendant pour partager des actualités, des avis et des recommandations sur les cultures animées et vidéoludiques.</p><a class="btn secondary" href="#apropos">En savoir plus</a></div></div>
+    </section>
+
+    <section class="wrap section" id="apropos">
+      <div class="section-head"><div><span class="eyebrow">Notre univers</span><h2>Bienvenue dans AnimeVerse</h2><p>Un média fait pour les curieux et les passionnés.</p></div></div>
+      <div class="about-grid">
+        <div class="about-item"><div class="ico">🎌</div><h3>Animés</h3><p>Nouveautés, dossiers, recommandations et découvertes de séries.</p></div>
+        <div class="about-item"><div class="ico">📚</div><h3>Mangas</h3><p>Présentations, critiques et sélections de lectures.</p></div>
+        <div class="about-item"><div class="ico">🎮</div><h3>Jeux vidéo</h3><p>Actualités gaming, sorties, tests et jeux à découvrir.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap foot"><div><strong>✦ ANIMEVERSE</strong><br>Explore. Découvre. Joue.</div><div>© <span id="year"></span> AnimeVerse · Site indépendant de fans.</div><div><a href="mailto:contact@exemple.com">Contact (à configurer)</a></div></div></footer>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><div class="modal-top"><div class="meta"><span class="tag" id="modalTag"></span><span>Article de démonstration</span></div><button class="close" id="closeModal" aria-label="Fermer">✕</button></div><h2 id="modalTitle"></h2><div id="modalText"></div><p><strong>À toi de jouer :</strong> remplace ce texte de démonstration par ton propre article, avec tes sources et tes images autorisées.</p></div></div>
+
+  <script>
+    const cards=[...document.querySelectorAll('.card')], chips=[...document.querySelectorAll('.chip')], search=document.getElementById('search'), empty=document.getElementById('empty');
+    let current='Tous';
+    function filterCards(){const q=search.value.trim().toLocaleLowerCase('fr');let shown=0;cards.forEach(card=>{const okCat=current==='Tous'||card.dataset.category===current;const okText=(card.dataset.title+' '+card.innerText).toLocaleLowerCase('fr').includes(q);const visible=okCat&&okText;card.style.display=visible?'':'none';if(visible)shown++});empty.style.display=shown?'none':'block'}
+    chips.forEach(chip=>chip.addEventListener('click',()=>{current=chip.dataset.filter;chips.forEach(c=>c.classList.toggle('active',c===chip));filterCards()}));
+    search.addEventListener('input',filterCards);
+    document.querySelectorAll('[data-filter-link]').forEach(link=>link.addEventListener('click',()=>{current=link.dataset.filterLink;chips.forEach(c=>c.classList.toggle('active',c.dataset.filter===current));filterCards();document.getElementById('navLinks').classList.remove('show')}));
+    const modal=document.getElementById('modal');
+    cards.forEach(card=>card.addEventListener('click',()=>{document.getElementById('modalTag').textContent=card.dataset.category;document.getElementById('modalTitle').textContent=card.dataset.title;document.getElementById('modalText').innerHTML='<p>'+card.querySelector('p').textContent+'</p><p>AnimeVerse partage ici un exemple de présentation. Pour publier une vraie actualité, rédige un texte original et vérifie les informations auprès de sources fiables.</p>';modal.classList.add('open')}));
+    function closeModal(){modal.classList.remove('open')}document.getElementById('closeModal').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+    document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('show'));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
